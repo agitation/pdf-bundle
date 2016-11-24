@@ -1,0 +1,21 @@
+{
+    "name": "agitation/pdf-bundle",
+    "type": "symfony-bundle",
+    "require": {
+        "php": ">=5.6",
+        "symfony/symfony": "2.8.*",
+        "agitation/base-bundle": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Agit\\UserBundle\\": "lib/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Günsche",
+            "homepage": "http://www.agitsol.com/"
+        }
+    ]
+}
