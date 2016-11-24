@@ -4,8 +4,7 @@
     "require": {
         "php": ">=5.6",
         "symfony/symfony": "2.8.*",
-        "dompdf/dompdf": "^0.7",
-        "agitation/base-bundle": "dev-master"
+        "dompdf/dompdf": "^0.7"
     },
     "autoload": {
         "psr-4": {
@@ -18,5 +17,14 @@
             "name": "Alexander Günsche",
             "homepage": "http://www.agitsol.com/"
         }
-    ]
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/dompdf/utils"
+        }
+    ],
+    "require": {
+        "dompdf/utils": "dev-master"
+    }
 }
