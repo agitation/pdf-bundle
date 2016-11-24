@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Agit\\UserBundle\\": "lib/"
+            "Agit\\PdfBundle\\": "lib/"
         }
     },
     "license": "MIT",
