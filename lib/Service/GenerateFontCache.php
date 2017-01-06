@@ -49,8 +49,6 @@ class GenerateFontCache implements CacheWarmerInterface
         $targetDir = $dompdf->getOptions()->get("fontDir");
         $filesystem->mkdir($targetDir);
 
-        p($this->fonts);
-
         if (is_array($this->fonts)) {
             foreach ($this->fonts as $name => $variants) {
                 if (! is_array($variants)) {
