@@ -14,16 +14,20 @@ use Dompdf\Options;
 
 class PdfService
 {
-    public function __construct($appDir)
+    private $cacheDir;
+
+    public function __construct($cacheDir)
     {
-        $this->appDir = $appDir;
+        $this->cacheDir = $cacheDir;
     }
 
     public function getRenderer()
     {
+        $cacheDir = $this->cacheDir . "/agit/pdf";
+
         $options = new Options([
-            "fontDir"                   => $this->appDir . "/Resources/pdf/fonts",
-            "fontCache"                 => $this->appDir . "/Resources/pdf/fonts",
+            "fontDir"                   => $cacheDir,
+            "fontCache"                 => $cacheDir,
             "isFontSubsettingEnabled"   => true
         ]);
 
