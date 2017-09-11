@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 /*
  * @package    agitation/pdf-bundle
  * @link       http://github.com/agitation/pdf-bundle
@@ -23,12 +23,12 @@ class PdfService
 
     public function getRenderer()
     {
-        $cacheDir = $this->cacheDir . "/agit/pdf";
+        $cacheDir = $this->cacheDir . '/agit/pdf';
 
         $options = new Options([
-            "fontDir"                   => $cacheDir,
-            "fontCache"                 => $cacheDir,
-            "isFontSubsettingEnabled"   => true
+            'fontDir' => $cacheDir,
+            'fontCache' => $cacheDir,
+            'isFontSubsettingEnabled' => true
         ]);
 
         return new Dompdf($options);

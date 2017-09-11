@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 /*
  * @package    agitation/pdf-bundle
  * @link       http://github.com/agitation/pdf-bundle
@@ -26,7 +26,7 @@ class AgitPdfExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . "/../Resources/config"));
-        $loader->load("services.yml");
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader->load('services.yml');
     }
 }

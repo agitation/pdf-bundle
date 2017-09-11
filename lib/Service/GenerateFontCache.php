@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 /*
  * @package    agitation/pdf-bundle
  * @link       http://github.com/agitation/pdf-bundle
@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\Kernel;
 
 class GenerateFontCache implements CacheWarmerInterface
 {
-    const AVAILABLE_VARIANTS = ["normal", "italic", "bold", "bold_italic"];
+    const AVAILABLE_VARIANTS = ['normal', 'italic', 'bold', 'bold_italic'];
 
     /**
      * @var Kernel
@@ -46,26 +46,31 @@ class GenerateFontCache implements CacheWarmerInterface
         $filesystem = new Filesystem();
         $dompdf = $this->pdfService->getRenderer();
         $fontMetrics = $dompdf->getFontMetrics();
-        $targetDir = $dompdf->getOptions()->get("fontDir");
+        $targetDir = $dompdf->getOptions()->get('fontDir');
         $filesystem->mkdir($targetDir);
 
-        if (is_array($this->fonts)) {
-            foreach ($this->fonts as $name => $variants) {
-                if (! is_array($variants)) {
+        if (is_array($this->fonts))
+        {
+            foreach ($this->fonts as $name => $variants)
+            {
+                if (! is_array($variants))
+                {
                     throw new InternalErrorException("Expected an array of font variants/files for font $name.");
                 }
 
-                $name = trim(preg_replace("|[^a-z0-9\.\-\_]|i", "", $name), ".-_");
+                $name = trim(preg_replace("|[^a-z0-9\.\-\_]|i", '', $name), '.-_');
                 $files = [];
 
-                foreach ($variants as $variant => $path) {
-                    if (! in_array($variant, self::AVAILABLE_VARIANTS)) {
+                foreach ($variants as $variant => $path)
+                {
+                    if (! in_array($variant, self::AVAILABLE_VARIANTS))
+                    {
                         throw new InternalErrorException("Invalid font variant: $variant.");
                     }
 
                     $sourcePath = $this->kernel->locateResource("@$path");
                     $targetBasePath = "$targetDir/$name.$variant";
-                    $extension = strrchr($sourcePath, ".") ?: "";
+                    $extension = strrchr($sourcePath, '.') ?: '';
                     $targetPath = $targetBasePath . $extension;
                     $filesystem->copy($sourcePath, $targetPath, true);
 
