@@ -6,8 +6,8 @@ services:
    agit.pdf.fontcache:
        private: true
        class: Agit\PdfBundle\Service\GenerateFontCache
-       arguments: [ "@kernel", "@agit.pdf", "%agit.pdf.fonts%" ]
+       arguments: [ "@kernel", "@agit.pdf", "%agit_pdf_fonts%" ]
        tags: [{ name: kernel.cache_warmer }]
 
 parameters:
-    agit.pdf.fonts: null # default, can be overridden in parameters.yml
+    agit_pdf_fonts: null # default, can be overridden in parameters.yml
