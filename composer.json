@@ -2,7 +2,7 @@
     "name": "agitation/pdf-bundle",
     "type": "symfony-bundle",
     "require": {
-        "dompdf/dompdf": "^0.7"
+        "dompdf/dompdf": "^0.8"
     },
     "autoload": {
         "psr-4": {
